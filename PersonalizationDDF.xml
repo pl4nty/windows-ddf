@@ -1,17 +1,17 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE MgmtTree PUBLIC " -//OMA//DTD-DM-DDF 1.2//EN"
   "http://www.openmobilealliance.org/tech/DTD/DM_DDF-V1_2.dtd"
   [<?oma-dm-ddf-ver supported-versions="1.2"?>]>
 <MgmtTree xmlns:MSFT="http://schemas.microsoft.com/MobileDevice/DM">
   <VerDTD>1.2</VerDTD>
       <Node>
-        <NodeName>SecureAssessment</NodeName>
+        <NodeName>Personalization</NodeName>
         <Path>./Vendor/MSFT</Path>
         <DFProperties>
           <AccessType>
             <Get />
           </AccessType>
-          <Description>Settings related to the configuration of the Secure Assessment Browser.</Description>
+          <Description>Configure a PC's personalization settings such as Desktop Image and Lock Screen Image.</Description>
           <DFFormat>
             <node />
           </DFFormat>
@@ -22,38 +22,11 @@
             <Permanent />
           </Scope>
           <DFType>
-            <MIME>com.microsoft/1.1/MDM/SecureAssessment</MIME>
+            <MIME>com.microsoft/1.0/MDM/Personalization</MIME>
           </DFType>
         </DFProperties>
         <Node>
-          <NodeName>LaunchURI</NodeName>
-          <DFProperties>
-            <AccessType>
-              <Add />
-              <Delete />
-              <Get />
-              <Replace />
-            </AccessType>
-            <Description>Link to an assessment that's automatically loaded when the Secure Assessment Browser is launched.</Description>
-            <DFFormat>
-              <chr />
-            </DFFormat>
-            <Occurrence>
-              <ZeroOrOne />
-            </Occurrence>
-            <Scope>
-              <Dynamic />
-            </Scope>
-            <CaseSense>
-              <CIS />
-            </CaseSense>
-            <DFType>
-              <MIME>text/plain</MIME>
-            </DFType>
-          </DFProperties>
-        </Node>
-        <Node>
-          <NodeName>TesterAccount</NodeName>
+          <NodeName>DesktopImageUrl</NodeName>
           <DFProperties>
             <AccessType>
               <Get />
@@ -61,97 +34,82 @@
               <Delete />
               <Replace />
             </AccessType>
-            <Description>The user name of the test taking account.  To specify a domain account, use domain\user. To specify an AAD account, use username@tenant.com. To specify a local account, use the username.</Description>
+            <Description>A http or https Url to a jpg, jpeg or png image that needs to be downloaded and used as the Desktop Image or a file Url to a local image on the file system that needs to be used as the Desktop Image.</Description>
             <DFFormat>
               <chr />
             </DFFormat>
             <Occurrence>
-              <ZeroOrOne />
+              <One />
             </Occurrence>
             <Scope>
               <Dynamic />
             </Scope>
-            <CaseSense>
-              <CIS />
-            </CaseSense>
             <DFType>
               <MIME>text/plain</MIME>
             </DFType>
           </DFProperties>
         </Node>
         <Node>
-          <NodeName>AllowScreenMonitoring</NodeName>
+          <NodeName>DesktopImageStatus</NodeName>
           <DFProperties>
             <AccessType>
               <Get />
-              <Replace />
             </AccessType>
-            <DefaultValue>false</DefaultValue>
-            <Description>Indicates if screen monitoring is allowed by the app.</Description>
+            <Description>This represents the status of the DesktopImage. 1 - Successfully downloaded or copied. 2 - Download/Copy in progress. 3 - Download/Copy failed. 4 - Unknown file type. 5 - Unsupported Url scheme. 6 - Max retry failed.</Description>
             <DFFormat>
-              <bool />
+              <int />
             </DFFormat>
             <Occurrence>
               <One />
             </Occurrence>
             <Scope>
-              <Permanent />
+              <Dynamic />
             </Scope>
-            <CaseSense>
-              <CIS />
-            </CaseSense>
             <DFType>
               <MIME>text/plain</MIME>
             </DFType>
           </DFProperties>
         </Node>
         <Node>
-          <NodeName>RequirePrinting</NodeName>
+          <NodeName>LockScreenImageUrl</NodeName>
           <DFProperties>
             <AccessType>
               <Get />
+              <Add />
+              <Delete />
               <Replace />
             </AccessType>
-            <DefaultValue>false</DefaultValue>
-            <Description>Indicates if printing is required by the app.</Description>
+            <Description>A http or https Url to a jpg, jpeg or png image that neeeds to be downloaded and used as the Lock Screen Image or a file Url to a local image on the file system that needs to be used as the Lock Screen Image.</Description>
             <DFFormat>
-              <bool />
+              <chr />
             </DFFormat>
             <Occurrence>
               <One />
             </Occurrence>
             <Scope>
-              <Permanent />
+              <Dynamic />
             </Scope>
-            <CaseSense>
-              <CIS />
-            </CaseSense>
             <DFType>
               <MIME>text/plain</MIME>
             </DFType>
           </DFProperties>
         </Node>
         <Node>
-          <NodeName>AllowTextSuggestions</NodeName>
+          <NodeName>LockScreenImageStatus</NodeName>
           <DFProperties>
             <AccessType>
               <Get />
-              <Replace />
             </AccessType>
-            <DefaultValue>false</DefaultValue>
-            <Description>Indicates if keyboard text suggestions are allowed by the app.</Description>
+            <Description>This represents the status of the LockScreenImage. 1 - Successfully downloaded or copied. 2 - Download/Copy in progress. 3 - Download/Copy failed. 4 - Unknown file type. 5 - Unsupported Url scheme. 6 - Max retry failed.</Description>
             <DFFormat>
-              <bool />
+              <int />
             </DFFormat>
             <Occurrence>
               <One />
             </Occurrence>
             <Scope>
-              <Permanent />
+              <Dynamic />
             </Scope>
-            <CaseSense>
-              <CIS />
-            </CaseSense>
             <DFType>
               <MIME>text/plain</MIME>
             </DFType>

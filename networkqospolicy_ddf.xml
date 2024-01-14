@@ -5,7 +5,7 @@
 <MgmtTree xmlns:MSFT="http://schemas.microsoft.com/MobileDevice/DM">
   <VerDTD>1.2</VerDTD>
       <Node>
-        <NodeName>EnterpriseDataProtection</NodeName>
+        <NodeName>NetworkQoSPolicy</NodeName>
         <Path>./Device/Vendor/MSFT</Path>
         <DFProperties>
           <AccessType>
@@ -21,247 +21,66 @@
             <Permanent />
           </Scope>
           <DFType>
-            <MIME>com.microsoft/1.0/MDM/EnterpriseDataProtection</MIME>
+            <MIME>com.microsoft/1.0/MDM/NetworkQoSPolicy</MIME>
+            <DDFName></DDFName>
           </DFType>
         </DFProperties>
         <Node>
-          <NodeName>Settings</NodeName>
+            <NodeName>Version</NodeName>
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <Description>Version information.</Description>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+            <Scope>
+              <Permanent />
+            </Scope>
+            <DFTitle>Version</DFTitle>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName></NodeName>
           <DFProperties>
             <AccessType>
               <Get />
+              <Add />
+              <Delete />
+              <Replace />
             </AccessType>
+            <Description>The value of this node should be a policy name.</Description>
             <DFFormat>
               <node />
             </DFFormat>
             <Occurrence>
-              <One />
+              <ZeroOrMore />
             </Occurrence>
             <Scope>
-              <Permanent />
+              <Dynamic />
             </Scope>
+            <DFTitle>Name</DFTitle>
             <DFType>
               <DDFName></DDFName>
             </DFType>
           </DFProperties>
           <Node>
-            <NodeName>EDPEnforcementLevel</NodeName>
+            <NodeName>PolicyStore</NodeName>
             <DFProperties>
               <AccessType>
                 <Get />
+                <Replace />
                 <Add />
                 <Delete />
-                <Replace />
               </AccessType>
-              <Description>Maps to MDM "EDPEnforcementLevel" policy.</Description>
-              <DFFormat>
-                <int />
-              </DFFormat>
-              <Occurrence>
-                <One />
-              </Occurrence>
-              <Scope>
-                <Dynamic />
-              </Scope>
-              <DFType>
-                <MIME>text/plain</MIME>
-              </DFType>
-            </DFProperties>
-          </Node>
-          <Node>
-            <NodeName>EnterpriseProtectedDomainNames</NodeName>
-            <DFProperties>
-              <AccessType>
-                <Get />
-                <Add />
-                <Delete />
-                <Replace />
-              </AccessType>
-              <Description>Maps to EnerpriseProtectedDomainNames MDM policy.</Description>
-              <DFFormat>
-                <chr />
-              </DFFormat>
-              <Occurrence>
-                <One />
-              </Occurrence>
-              <Scope>
-                <Dynamic />
-              </Scope>
-              <DFType>
-                <MIME>text/plain</MIME>
-              </DFType>
-            </DFProperties>
-          </Node>
-          <Node>
-            <NodeName>AllowUserDecryption</NodeName>
-            <DFProperties>
-              <AccessType>
-                <Get />
-                <Add />
-                <Delete />
-                <Replace />
-              </AccessType>
-              <Description>Deprecated. Recommendation is to always set to 1. When fetching this policy value, client will always return 1 regardless of what was originally set by server.</Description>
-              <DFFormat>
-                <int />
-              </DFFormat>
-              <Occurrence>
-                <One />
-              </Occurrence>
-              <Scope>
-                <Dynamic />
-              </Scope>
-              <DFType>
-                <MIME>text/plain</MIME>
-              </DFType>
-            </DFProperties>
-          </Node>
-          <Node>
-            <NodeName>RequireProtectionUnderLockConfig</NodeName>
-            <DFProperties>
-              <AccessType>
-                <Get />
-                <Add />
-                <Delete />
-                <Replace />
-              </AccessType>
-              <DFFormat>
-                <int />
-              </DFFormat>
-              <Occurrence>
-                <One />
-              </Occurrence>
-              <Scope>
-                <Dynamic />
-              </Scope>
-              <DFType>
-                <MIME>text/plain</MIME>
-              </DFType>
-            </DFProperties>
-          </Node>
-          <Node>
-            <NodeName>DataRecoveryCertificate</NodeName>
-            <DFProperties>
-              <AccessType>
-                <Get />
-                <Add />
-                <Delete />
-                <Replace />
-              </AccessType>
-              <DFFormat>
-                <b64 />
-              </DFFormat>
-              <Occurrence>
-                <One />
-              </Occurrence>
-              <Scope>
-                <Dynamic />
-              </Scope>
-              <DFType>
-                <DDFName></DDFName>
-              </DFType>
-            </DFProperties>
-          </Node>
-          <Node>
-            <NodeName>RevokeOnUnenroll</NodeName>
-            <DFProperties>
-              <AccessType>
-                <Get />
-                <Add />
-                <Delete />
-                <Replace />
-              </AccessType>
-              <DFFormat>
-                <int />
-              </DFFormat>
-              <Occurrence>
-                <One />
-              </Occurrence>
-              <Scope>
-                <Dynamic />
-              </Scope>
-              <DFType>
-                <MIME>text/plain</MIME>
-              </DFType>
-            </DFProperties>
-          </Node>
-          <Node>
-            <NodeName>RevokeOnMDMHandoff</NodeName>
-            <DFProperties>
-              <AccessType>
-                <Get />
-                <Add />
-                <Delete />
-                <Replace />
-              </AccessType>
-            <DFFormat>
-              <int />
-            </DFFormat>
-            <Occurrence>
-              <One />
-            </Occurrence>
-            <Scope>
-              <Dynamic />
-            </Scope>
-            <DFType>
-              <MIME>text/plain</MIME>
-            </DFType>
-            </DFProperties>
-          </Node>
-          <Node>
-            <NodeName>RMSTemplateIDForEDP</NodeName>
-            <DFProperties>
-              <AccessType>
-                <Get />
-                <Add />
-                <Delete />
-                <Replace />
-              </AccessType>
-              <DFFormat>
-                <chr />
-              </DFFormat>
-              <Occurrence>
-                <One />
-              </Occurrence>
-              <Scope>
-                <Dynamic />
-              </Scope>
-              <DFType>
-                <MIME>text/plain</MIME>
-              </DFType>
-            </DFProperties>
-          </Node>
-          <Node>
-            <NodeName>AllowAzureRMSForEDP</NodeName>
-            <DFProperties>
-              <AccessType>
-                <Get />
-                <Add />
-                <Delete />
-                <Replace />
-              </AccessType>
-              <DFFormat>
-                <int />
-              </DFFormat>
-              <Occurrence>
-                <One />
-              </Occurrence>
-              <Scope>
-                <Dynamic />
-              </Scope>
-              <DFType>
-                <MIME>text/plain</MIME>
-              </DFType>
-            </DFProperties>
-          </Node>
-          <Node>
-            <NodeName>SMBAutoEncryptedFileExtensions</NodeName>
-            <DFProperties>
-              <AccessType>
-                <Get />
-                <Add />
-                <Delete />
-                <Replace />
-              </AccessType>
+              <Description>The location where the QoS policy is stored.</Description>
               <DFFormat>
                 <chr />
               </DFFormat>
@@ -271,55 +90,163 @@
               <Scope>
                 <Dynamic />
               </Scope>
+              <DFTitle>PolicyStore</DFTitle>
               <DFType>
                 <MIME>text/plain</MIME>
               </DFType>
             </DFProperties>
           </Node>
           <Node>
-            <NodeName>EDPShowIcons</NodeName>
+            <NodeName>IPProtocolMatchCondition</NodeName>
             <DFProperties>
               <AccessType>
                 <Get />
+                <Replace />
                 <Add />
                 <Delete />
-                <Replace />
               </AccessType>
+              <DefaultValue>0</DefaultValue>
+              <Description>Specifies the IP protocol used to match the network traffic. Valid values are 0: Both TCP and UDP (default), 1: TCP, 2: UDP.</Description>
               <DFFormat>
                 <int />
               </DFFormat>
               <Occurrence>
-                <One />
+                <ZeroOrOne />
               </Occurrence>
               <Scope>
                 <Dynamic />
               </Scope>
+              <DFTitle>IPProtocolMatchCondition</DFTitle>
               <DFType>
                 <MIME>text/plain</MIME>
               </DFType>
             </DFProperties>
           </Node>
-        </Node>
-        <Node>
-          <NodeName>Status</NodeName>
-          <DFProperties>
-            <AccessType>
-              <Get />
-            </AccessType>
-            <DFFormat>
-              <int />
-            </DFFormat>
-            <Occurrence>
-              <One />
-            </Occurrence>
-            <Scope>
-              <Permanent />
-            </Scope>
-            <DFTitle>Current state of Enterprise Data Protection configuration on the device.</DFTitle>
-            <DFType>
-              <MIME>text/plain</MIME>
-            </DFType>
-          </DFProperties>
+          <Node>
+            <NodeName>AppPathNameMatchCondition</NodeName>
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+                <Add />
+                <Delete />
+              </AccessType>
+              <Description>Specifies the name of an application to be used to match the network traffic, such as application.exe or %ProgramFiles%\application.exe.</Description>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <Scope>
+                <Dynamic />
+              </Scope>
+              <DFTitle>AppPathNameMatchCondition</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>SourcePortMatchCondition</NodeName>
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+                <Add />
+                <Delete />
+              </AccessType>
+              <Description>Specifies a single port or a range of ports to be used to match the network traffic. Valid values are [first port number]-[last port number] or [port number].</Description>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <Scope>
+                <Dynamic />
+              </Scope>
+              <DFTitle>SourcePortMatchCondition</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>DestinationPortMatchCondition</NodeName>
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+                <Add />
+                <Delete />
+              </AccessType>
+              <Description>Specifies a single port or a range of ports to be used to match the network traffic. Valid values are [first port number]-[last port number] or [port number].</Description>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <Scope>
+                <Dynamic />
+              </Scope>
+              <DFTitle>DestinationPortMatchCondition</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>PriorityValue8021Action</NodeName>
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+                <Add />
+                <Delete />
+              </AccessType>
+              <Description>The IEEE 802.1p value to apply to matching network traffice. Valid values are 0-7.</Description>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <Scope>
+                <Dynamic />
+              </Scope>
+              <DFTitle>PriorityValue8021Action</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>DSCPAction</NodeName>
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+                <Add />
+                <Delete />
+              </AccessType>
+              <Description>The differentiated services code point (DSCP) value to apply to matching network traffic. Valid values are 0-63.</Description>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <ZeroOrOne />
+              </Occurrence>
+              <Scope>
+                <Dynamic />
+              </Scope>
+              <DFTitle>DSCPAction</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
         </Node>
       </Node>
 </MgmtTree>

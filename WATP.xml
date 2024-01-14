@@ -5,12 +5,13 @@
 <MgmtTree xmlns:MSFT="http://schemas.microsoft.com/MobileDevice/DM">
   <VerDTD>1.2</VerDTD>
       <Node>
-        <NodeName>EnterpriseDataProtection</NodeName>
+        <NodeName>WindowsAdvancedThreatProtection</NodeName>
         <Path>./Device/Vendor/MSFT</Path>
         <DFProperties>
           <AccessType>
             <Get />
           </AccessType>
+          <Description>Windows Defender Advanced Threat Protection</Description>
           <DFFormat>
             <node />
           </DFFormat>
@@ -21,15 +22,38 @@
             <Permanent />
           </Scope>
           <DFType>
-            <MIME>com.microsoft/1.0/MDM/EnterpriseDataProtection</MIME>
+            <MIME>com.microsoft/1.1/MDM/WindowsAdvancedThreatProtection</MIME>
           </DFType>
         </DFProperties>
         <Node>
-          <NodeName>Settings</NodeName>
+          <NodeName>Onboarding</NodeName>
+          <DFProperties>
+            <AccessType>
+              <Replace />
+              <Get />
+            </AccessType>
+            <Description>Set Windows Defender Advanced Threat Protection Onboarding blob and initiate onboarding to Windows Defender Advanced Threat Protection</Description>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <Scope>
+              <Permanent />
+            </Scope>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>HealthState</NodeName>
           <DFProperties>
             <AccessType>
               <Get />
             </AccessType>
+            <Description>Represents Windows Defender Advanced Threat Protection Health State</Description>
             <DFFormat>
               <node />
             </DFFormat>
@@ -44,23 +68,20 @@
             </DFType>
           </DFProperties>
           <Node>
-            <NodeName>EDPEnforcementLevel</NodeName>
+            <NodeName>LastConnected</NodeName>
             <DFProperties>
               <AccessType>
                 <Get />
-                <Add />
-                <Delete />
-                <Replace />
               </AccessType>
-              <Description>Maps to MDM "EDPEnforcementLevel" policy.</Description>
+              <Description>The last successful connection.</Description>
               <DFFormat>
-                <int />
+                <time />
               </DFFormat>
               <Occurrence>
                 <One />
               </Occurrence>
               <Scope>
-                <Dynamic />
+                <Permanent />
               </Scope>
               <DFType>
                 <MIME>text/plain</MIME>
@@ -68,15 +89,56 @@
             </DFProperties>
           </Node>
           <Node>
-            <NodeName>EnterpriseProtectedDomainNames</NodeName>
+            <NodeName>SenseIsRunning</NodeName>
             <DFProperties>
               <AccessType>
                 <Get />
-                <Add />
-                <Delete />
-                <Replace />
               </AccessType>
-              <Description>Maps to EnerpriseProtectedDomainNames MDM policy.</Description>
+              <DefaultValue>false</DefaultValue>
+              <Description>Return Windows Defender Advanced Threat Protection service running state</Description>
+              <DFFormat>
+                <bool />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <Scope>
+                <Permanent />
+              </Scope>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>OnboardingState</NodeName>
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <DefaultValue>0</DefaultValue>
+              <Description>Return Windows Defender Advanced Threat Protection onboarding state: 0 – not onboarded; 1 - onboarded</Description>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <Scope>
+                <Permanent />
+              </Scope>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>OrgId</NodeName>
+            <DFProperties>
+              <AccessType>
+                <Get />
+              </AccessType>
+              <Description>Onboarded Org ID.</Description>
               <DFFormat>
                 <chr />
               </DFFormat>
@@ -84,215 +146,7 @@
                 <One />
               </Occurrence>
               <Scope>
-                <Dynamic />
-              </Scope>
-              <DFType>
-                <MIME>text/plain</MIME>
-              </DFType>
-            </DFProperties>
-          </Node>
-          <Node>
-            <NodeName>AllowUserDecryption</NodeName>
-            <DFProperties>
-              <AccessType>
-                <Get />
-                <Add />
-                <Delete />
-                <Replace />
-              </AccessType>
-              <Description>Deprecated. Recommendation is to always set to 1. When fetching this policy value, client will always return 1 regardless of what was originally set by server.</Description>
-              <DFFormat>
-                <int />
-              </DFFormat>
-              <Occurrence>
-                <One />
-              </Occurrence>
-              <Scope>
-                <Dynamic />
-              </Scope>
-              <DFType>
-                <MIME>text/plain</MIME>
-              </DFType>
-            </DFProperties>
-          </Node>
-          <Node>
-            <NodeName>RequireProtectionUnderLockConfig</NodeName>
-            <DFProperties>
-              <AccessType>
-                <Get />
-                <Add />
-                <Delete />
-                <Replace />
-              </AccessType>
-              <DFFormat>
-                <int />
-              </DFFormat>
-              <Occurrence>
-                <One />
-              </Occurrence>
-              <Scope>
-                <Dynamic />
-              </Scope>
-              <DFType>
-                <MIME>text/plain</MIME>
-              </DFType>
-            </DFProperties>
-          </Node>
-          <Node>
-            <NodeName>DataRecoveryCertificate</NodeName>
-            <DFProperties>
-              <AccessType>
-                <Get />
-                <Add />
-                <Delete />
-                <Replace />
-              </AccessType>
-              <DFFormat>
-                <b64 />
-              </DFFormat>
-              <Occurrence>
-                <One />
-              </Occurrence>
-              <Scope>
-                <Dynamic />
-              </Scope>
-              <DFType>
-                <DDFName></DDFName>
-              </DFType>
-            </DFProperties>
-          </Node>
-          <Node>
-            <NodeName>RevokeOnUnenroll</NodeName>
-            <DFProperties>
-              <AccessType>
-                <Get />
-                <Add />
-                <Delete />
-                <Replace />
-              </AccessType>
-              <DFFormat>
-                <int />
-              </DFFormat>
-              <Occurrence>
-                <One />
-              </Occurrence>
-              <Scope>
-                <Dynamic />
-              </Scope>
-              <DFType>
-                <MIME>text/plain</MIME>
-              </DFType>
-            </DFProperties>
-          </Node>
-          <Node>
-            <NodeName>RevokeOnMDMHandoff</NodeName>
-            <DFProperties>
-              <AccessType>
-                <Get />
-                <Add />
-                <Delete />
-                <Replace />
-              </AccessType>
-            <DFFormat>
-              <int />
-            </DFFormat>
-            <Occurrence>
-              <One />
-            </Occurrence>
-            <Scope>
-              <Dynamic />
-            </Scope>
-            <DFType>
-              <MIME>text/plain</MIME>
-            </DFType>
-            </DFProperties>
-          </Node>
-          <Node>
-            <NodeName>RMSTemplateIDForEDP</NodeName>
-            <DFProperties>
-              <AccessType>
-                <Get />
-                <Add />
-                <Delete />
-                <Replace />
-              </AccessType>
-              <DFFormat>
-                <chr />
-              </DFFormat>
-              <Occurrence>
-                <One />
-              </Occurrence>
-              <Scope>
-                <Dynamic />
-              </Scope>
-              <DFType>
-                <MIME>text/plain</MIME>
-              </DFType>
-            </DFProperties>
-          </Node>
-          <Node>
-            <NodeName>AllowAzureRMSForEDP</NodeName>
-            <DFProperties>
-              <AccessType>
-                <Get />
-                <Add />
-                <Delete />
-                <Replace />
-              </AccessType>
-              <DFFormat>
-                <int />
-              </DFFormat>
-              <Occurrence>
-                <One />
-              </Occurrence>
-              <Scope>
-                <Dynamic />
-              </Scope>
-              <DFType>
-                <MIME>text/plain</MIME>
-              </DFType>
-            </DFProperties>
-          </Node>
-          <Node>
-            <NodeName>SMBAutoEncryptedFileExtensions</NodeName>
-            <DFProperties>
-              <AccessType>
-                <Get />
-                <Add />
-                <Delete />
-                <Replace />
-              </AccessType>
-              <DFFormat>
-                <chr />
-              </DFFormat>
-              <Occurrence>
-                <ZeroOrOne />
-              </Occurrence>
-              <Scope>
-                <Dynamic />
-              </Scope>
-              <DFType>
-                <MIME>text/plain</MIME>
-              </DFType>
-            </DFProperties>
-          </Node>
-          <Node>
-            <NodeName>EDPShowIcons</NodeName>
-            <DFProperties>
-              <AccessType>
-                <Get />
-                <Add />
-                <Delete />
-                <Replace />
-              </AccessType>
-              <DFFormat>
-                <int />
-              </DFFormat>
-              <Occurrence>
-                <One />
-              </Occurrence>
-              <Scope>
-                <Dynamic />
+                <Permanent />
               </Scope>
               <DFType>
                 <MIME>text/plain</MIME>
@@ -301,13 +155,14 @@
           </Node>
         </Node>
         <Node>
-          <NodeName>Status</NodeName>
+          <NodeName>Configuration</NodeName>
           <DFProperties>
             <AccessType>
               <Get />
             </AccessType>
+            <Description>Represents Windows Defender Advanced Threat Protection Configuration</Description>
             <DFFormat>
-              <int />
+              <node />
             </DFFormat>
             <Occurrence>
               <One />
@@ -315,7 +170,98 @@
             <Scope>
               <Permanent />
             </Scope>
-            <DFTitle>Current state of Enterprise Data Protection configuration on the device.</DFTitle>
+            <DFType>
+              <DDFName></DDFName>
+            </DFType>
+          </DFProperties>
+          <Node>
+            <NodeName>SampleSharing</NodeName>
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+              </AccessType>
+              <DefaultValue>1</DefaultValue>
+              <Description>Return or set Windows Defender Advanced Threat Protection Sample Sharing configuration parameter: 0 - none, 1 - All</Description>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <Scope>
+                <Permanent />
+              </Scope>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>TelemetryReportingFrequency</NodeName>
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+              </AccessType>
+              <DefaultValue>1</DefaultValue>
+              <Description>Return or set Windows Defender Advanced Threat Protection telemetry reporting frequency. Allowed values are: 1 - Normal, 2 - Expedite</Description>
+              <DFFormat>
+                <int />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <Scope>
+                <Permanent />
+              </Scope>
+              <DFTitle>Telemetry reporting frequency</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+          <Node>
+            <NodeName>GroupIds</NodeName>
+            <DFProperties>
+              <AccessType>
+                <Get />
+                <Replace />
+              </AccessType>
+              <Description>Set of Strings used by customer to mark subset of machines for WDATP targeting</Description>
+              <DFFormat>
+                <chr />
+              </DFFormat>
+              <Occurrence>
+                <One />
+              </Occurrence>
+              <Scope>
+                <Permanent />
+              </Scope>
+              <DFTitle>Group identifiers</DFTitle>
+              <DFType>
+                <MIME>text/plain</MIME>
+              </DFType>
+            </DFProperties>
+          </Node>
+        </Node>
+        <Node>
+          <NodeName>Offboarding</NodeName>
+          <DFProperties>
+            <AccessType>
+              <Replace />
+              <Get />
+            </AccessType>
+            <Description>Set Windows Defender Advanced Threat Protection Offboarding blob and initiate offboarding</Description>
+            <DFFormat>
+              <chr />
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <Scope>
+              <Permanent />
+            </Scope>
             <DFType>
               <MIME>text/plain</MIME>
             </DFType>
