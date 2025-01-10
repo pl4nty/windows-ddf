@@ -8677,6 +8677,52 @@ Related policy:
         </Node>
       </Node>
       <Node>
+        <NodeName>Multitasking</NodeName>
+        <DFProperties>
+          <AccessType>
+            <Add />
+            <Delete />
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <Scope>
+            <Dynamic />
+          </Scope>
+          <DFType>
+            <DDFName></DDFName>
+          </DFType>
+        </DFProperties>
+        <Node>
+          <NodeName>BrowserAltTabBlowout</NodeName>
+          <DFProperties>
+            <AccessType>
+              <Add />
+              <Delete />
+              <Get />
+              <Replace />
+            </AccessType>
+            <Description>Configures the inclusion of Edge tabs into Alt-Tab.</Description>
+            <DFFormat>
+              <int/>
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <Scope>
+              <Dynamic />
+            </Scope>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+      </Node>
+      <Node>
         <NodeName>Notifications</NodeName>
         <DFProperties>
           <AccessType>
@@ -18883,6 +18929,55 @@ Related policy:
         </Node>
       </Node>
       <Node>
+        <NodeName>Multitasking</NodeName>
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <One />
+          </Occurrence>
+          <Scope>
+            <Permanent />
+          </Scope>
+          <DFType>
+            <DDFName></DDFName>
+          </DFType>
+        </DFProperties>
+        <Node>
+          <NodeName>BrowserAltTabBlowout</NodeName>
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DefaultValue>1</DefaultValue>
+            <Description>Configures the inclusion of Edge tabs into Alt-Tab.</Description>
+            <DFFormat>
+              <int/>
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <Scope>
+              <Permanent />
+            </Scope>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+            <MSFT:SupportedValues AllowedValues="1,2,3,4"></MSFT:SupportedValues>
+            <MSFT:NotSupportedOnPlatform>phone</MSFT:NotSupportedOnPlatform>
+            <MSFT:ADMXMapped>multitasking.admx</MSFT:ADMXMapped>
+            <MSFT:ADMXMappedElement>AltTabFilterDropdown</MSFT:ADMXMappedElement>
+            <MSFT:ADMXCategory>multitasking~AT~WindowsComponents~MULTITASKING</MSFT:ADMXCategory>
+            <MSFT:ADMXPolicyName>MultiTaskingAltTabFilter</MSFT:ADMXPolicyName>
+            <MSFT:ConflictResolution>LastWrite</MSFT:ConflictResolution>
+          </DFProperties>
+        </Node>
+      </Node>
+      <Node>
         <NodeName>Notifications</NodeName>
         <DFProperties>
           <AccessType>
@@ -19165,7 +19260,7 @@ Related policy:
             <MSFT:ADMXMapped>ControlPanel.admx</MSFT:ADMXMapped>
             <MSFT:ADMXMappedElement>SettingsPageVisibilityBox</MSFT:ADMXMappedElement>
             <MSFT:ADMXCategory>ControlPanel~AT~ControlPanel</MSFT:ADMXCategory>
-            <MSFT:ADMXPolicyName>SettingsPageVisibilityForBoth</MSFT:ADMXPolicyName>
+            <MSFT:ADMXPolicyName>SettingsPageVisibility</MSFT:ADMXPolicyName>
             <MSFT:ConflictResolution>LastWrite</MSFT:ConflictResolution>
           </DFProperties>
         </Node>
@@ -29721,6 +29816,30 @@ Configure the minimum password age to be more than 0 if you want Enforce passwor
           </DFProperties>
         </Node>
         <Node>
+          <NodeName>DisableCloudOptimizedContent</NodeName>
+          <DFProperties>
+            <AccessType>
+              <Add />
+              <Delete />
+              <Get />
+              <Replace />
+            </AccessType>
+            <Description>This policy controls Windows experiences that use the cloud optimized content client component. If you enable this policy, they will present only default content. If you disable or do not configure this policy, they will be able to use cloud provided content.</Description>
+            <DFFormat>
+              <int/>
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <Scope>
+              <Dynamic />
+            </Scope>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
           <NodeName>DoNotShowFeedbackNotifications</NodeName>
           <DFProperties>
             <AccessType>
@@ -38317,6 +38436,60 @@ The options are:
         </Node>
       </Node>
       <Node>
+        <NodeName>LocalUsersAndGroups</NodeName>
+        <DFProperties>
+          <AccessType>
+            <Add />
+            <Delete />
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <Scope>
+            <Dynamic />
+          </Scope>
+          <DFType>
+            <DDFName></DDFName>
+          </DFType>
+        </DFProperties>
+        <Node>
+          <NodeName>Configure</NodeName>
+          <DFProperties>
+            <AccessType>
+              <Add />
+              <Delete />
+              <Get />
+              <Replace />
+            </AccessType>
+            <Description>This Setting allows an administrator to manage local groups on a Device.
+                            Possible settings:
+                            1. Update Group Membership: Update a group and add and/or remove members though the &apos;U&apos; action.
+                            When using Update, existing group members that are not specified in the policy remain untouched.
+                            2. Replace Group Membership: Restrict a group by replacing group membership through the &apos;R&apos; action.
+                            When using Replace, existing group membership is replaced by the list of members specified in
+                            the add member section. This option works in the same way as a Restricted Group and any group
+                            members that are not specified in the policy are removed.
+                            Caution: If the same group is configured with both Replace and Update, then Replace will win.</Description>
+            <DFFormat>
+              <chr/>
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <Scope>
+              <Dynamic />
+            </Scope>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+      </Node>
+      <Node>
         <NodeName>LockDown</NodeName>
         <DFProperties>
           <AccessType>
@@ -38511,6 +38684,148 @@ The options are:
               <Replace />
             </AccessType>
             <Description>This policy setting allows you to enable or disable the sending and receiving of cellular RCS (Rich Communication Services) messages.</Description>
+            <DFFormat>
+              <int/>
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <Scope>
+              <Dynamic />
+            </Scope>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+      </Node>
+      <Node>
+        <NodeName>MixedReality</NodeName>
+        <DFProperties>
+          <AccessType>
+            <Add />
+            <Delete />
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <ZeroOrOne />
+          </Occurrence>
+          <Scope>
+            <Dynamic />
+          </Scope>
+          <DFType>
+            <DDFName></DDFName>
+          </DFType>
+        </DFProperties>
+        <Node>
+          <NodeName>AADGroupMembershipCacheValidityInDays</NodeName>
+          <DFProperties>
+            <AccessType>
+              <Add />
+              <Delete />
+              <Get />
+              <Replace />
+            </AccessType>
+            <Description></Description>
+            <DFFormat>
+              <int/>
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <Scope>
+              <Dynamic />
+            </Scope>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>BrightnessButtonDisabled</NodeName>
+          <DFProperties>
+            <AccessType>
+              <Add />
+              <Delete />
+              <Get />
+              <Replace />
+            </AccessType>
+            <Description></Description>
+            <DFFormat>
+              <int/>
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <Scope>
+              <Dynamic />
+            </Scope>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>FallbackDiagnostics</NodeName>
+          <DFProperties>
+            <AccessType>
+              <Add />
+              <Delete />
+              <Get />
+              <Replace />
+            </AccessType>
+            <Description></Description>
+            <DFFormat>
+              <int/>
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <Scope>
+              <Dynamic />
+            </Scope>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>MicrophoneDisabled</NodeName>
+          <DFProperties>
+            <AccessType>
+              <Add />
+              <Delete />
+              <Get />
+              <Replace />
+            </AccessType>
+            <Description></Description>
+            <DFFormat>
+              <int/>
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <Scope>
+              <Dynamic />
+            </Scope>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>VolumeButtonDisabled</NodeName>
+          <DFProperties>
+            <AccessType>
+              <Add />
+              <Delete />
+              <Get />
+              <Replace />
+            </AccessType>
+            <Description></Description>
             <DFFormat>
               <int/>
             </DFFormat>
@@ -46251,34 +46566,6 @@ The following list shows the supported values:
           </DFProperties>
         </Node>
         <Node>
-          <NodeName>ConfigureKoreanIMEVersion</NodeName>
-          <DFProperties>
-            <AccessType>
-              <Add />
-              <Delete />
-              <Get />
-              <Replace />
-            </AccessType>
-            <Description>This policy allows the IT admin to configure the Microsoft Korean IME version in the desktop.
-The following list shows the supported values:
-0 (default) – The new Microsoft Korean IME is on by default. Allow to control Microsoft Korean IME version to use.
-1 - The previous version of Microsoft Korean IME is always selected.  Not allowed to control Microsoft Korean IME version to use.
-2 - The new Microsoft Korean IME is always selected.  Not allowed to control Microsoft Korean IME version to use.</Description>
-            <DFFormat>
-              <int/>
-            </DFFormat>
-            <Occurrence>
-              <ZeroOrOne />
-            </Occurrence>
-            <Scope>
-              <Dynamic />
-            </Scope>
-            <DFType>
-              <MIME>text/plain</MIME>
-            </DFType>
-          </DFProperties>
-        </Node>
-        <Node>
           <NodeName>ConfigureSimplifiedChineseIMEVersion</NodeName>
           <DFProperties>
             <AccessType>
@@ -47376,6 +47663,30 @@ If you disable or do not configure this policy setting, the wake setting as spec
           </DFProperties>
         </Node>
         <Node>
+          <NodeName>DisableWUfBSafeguards</NodeName>
+          <DFProperties>
+            <AccessType>
+              <Add />
+              <Delete />
+              <Get />
+              <Replace />
+            </AccessType>
+            <Description></Description>
+            <DFFormat>
+              <int/>
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <Scope>
+              <Dynamic />
+            </Scope>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
           <NodeName>EngagedRestartDeadline</NodeName>
           <DFProperties>
             <AccessType>
@@ -48121,6 +48432,30 @@ If you disable or do not configure this policy setting, the wake setting as spec
         </Node>
         <Node>
           <NodeName>SetEDURestart</NodeName>
+          <DFProperties>
+            <AccessType>
+              <Add />
+              <Delete />
+              <Get />
+              <Replace />
+            </AccessType>
+            <Description></Description>
+            <DFFormat>
+              <int/>
+            </DFFormat>
+            <Occurrence>
+              <ZeroOrOne />
+            </Occurrence>
+            <Scope>
+              <Dynamic />
+            </Scope>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>SetProxyBehaviorForUpdateDetection</NodeName>
           <DFProperties>
             <AccessType>
               <Add />
@@ -61290,6 +61625,33 @@ Configure the minimum password age to be more than 0 if you want Enforce passwor
           </DFProperties>
         </Node>
         <Node>
+          <NodeName>DisableCloudOptimizedContent</NodeName>
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DefaultValue>0</DefaultValue>
+            <Description>This policy controls Windows experiences that use the cloud optimized content client component. If you enable this policy, they will present only default content. If you disable or do not configure this policy, they will be able to use cloud provided content.</Description>
+            <DFFormat>
+              <int/>
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <Scope>
+              <Permanent />
+            </Scope>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+            <MSFT:SupportedValues low="0" high="1"></MSFT:SupportedValues>
+            <MSFT:ADMXMapped>CloudContent.admx</MSFT:ADMXMapped>
+            <MSFT:ADMXCategory>CloudContent~AT~WindowsComponents~CloudContent</MSFT:ADMXCategory>
+            <MSFT:ADMXPolicyName>DisableCloudOptimizedContent</MSFT:ADMXPolicyName>
+            <MSFT:ConflictResolution>HighestValueMostSecure</MSFT:ConflictResolution>
+          </DFProperties>
+        </Node>
+        <Node>
           <NodeName>DoNotShowFeedbackNotifications</NodeName>
           <DFProperties>
             <AccessType>
@@ -70803,6 +71165,116 @@ The options are:
         </Node>
       </Node>
       <Node>
+        <NodeName>LocalUsersAndGroups</NodeName>
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <One />
+          </Occurrence>
+          <Scope>
+            <Permanent />
+          </Scope>
+          <DFType>
+            <DDFName></DDFName>
+          </DFType>
+        </DFProperties>
+        <Node>
+          <NodeName>Configure</NodeName>
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DefaultValue></DefaultValue>
+            <Description>This Setting allows an administrator to manage local groups on a Device.
+                            Possible settings:
+                            1. Update Group Membership: Update a group and add and/or remove members though the &apos;U&apos; action.
+                            When using Update, existing group members that are not specified in the policy remain untouched.
+                            2. Replace Group Membership: Restrict a group by replacing group membership through the &apos;R&apos; action.
+                            When using Replace, existing group membership is replaced by the list of members specified in
+                            the add member section. This option works in the same way as a Restricted Group and any group
+                            members that are not specified in the policy are removed.
+                            Caution: If the same group is configured with both Replace and Update, then Replace will win.</Description>
+            <DFFormat>
+              <chr/>
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <Scope>
+              <Permanent />
+            </Scope>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+            <MSFT:NotSupportedOnPlatform>phone</MSFT:NotSupportedOnPlatform>
+            <MSFT:ConflictResolution>LastWrite</MSFT:ConflictResolution>
+            <MSFT:XMLSchema><![CDATA[<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
+                          <xs:simpleType name="name">
+                            <xs:restriction base="xs:string">
+                              <xs:maxLength value="255" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                          <xs:element name="accessgroup">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="group" minOccurs="1" maxOccurs="1">
+                                      <xs:annotation>
+                                        <xs:documentation>Group Configuration Action</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:complexType>
+                                        <xs:attribute name="action" type="name" use="required"/>
+                                      </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="add" minOccurs="0" maxOccurs="unbounded">
+                                      <xs:annotation>
+                                        <xs:documentation>Group Member to Add</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:complexType>
+                                        <xs:attribute name="member" type="name" use="required"/>
+                                      </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="remove" minOccurs="0" maxOccurs="unbounded">
+                                      <xs:annotation>
+                                        <xs:documentation>Group Member to Remove</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:complexType>
+                                        <xs:attribute name="member" type="name" use="required"/>
+                                      </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="property" minOccurs="0" maxOccurs="unbounded">
+                                      <xs:annotation>
+                                        <xs:documentation>Group property to configure</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:complexType>
+                                        <xs:attribute name="desc" type="name" use="required"/>
+                                        <xs:attribute name="value" type="name" use="required"/>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                              <xs:attribute name="desc" type="name" use="required"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="GroupConfiguration">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="accessgroup" minOccurs="0" maxOccurs="unbounded">
+                                  <xs:annotation>
+                              <xs:documentation>Local Group Configuration</xs:documentation>
+                            </xs:annotation>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                      </xs:schema]]></MSFT:XMLSchema>
+          </DFProperties>
+        </Node>
+      </Node>
+      <Node>
         <NodeName>LockDown</NodeName>
         <DFProperties>
           <AccessType>
@@ -71015,6 +71487,146 @@ The options are:
             <MSFT:SupportedValues low="0" high="1"></MSFT:SupportedValues>
             <MSFT:NotSupportedOnPlatform>desktop</MSFT:NotSupportedOnPlatform>
             <MSFT:ConflictResolution>LowestValueMostSecure</MSFT:ConflictResolution>
+          </DFProperties>
+        </Node>
+      </Node>
+      <Node>
+        <NodeName>MixedReality</NodeName>
+        <DFProperties>
+          <AccessType>
+            <Get />
+          </AccessType>
+          <DFFormat>
+            <node />
+          </DFFormat>
+          <Occurrence>
+            <One />
+          </Occurrence>
+          <Scope>
+            <Permanent />
+          </Scope>
+          <DFType>
+            <DDFName></DDFName>
+          </DFType>
+        </DFProperties>
+        <Node>
+          <NodeName>AADGroupMembershipCacheValidityInDays</NodeName>
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DefaultValue>0</DefaultValue>
+            <Description></Description>
+            <DFFormat>
+              <int/>
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <Scope>
+              <Permanent />
+            </Scope>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+            <MSFT:SupportedValues low="0" high="60"></MSFT:SupportedValues>
+            <MSFT:ConflictResolution>LastWrite</MSFT:ConflictResolution>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>BrightnessButtonDisabled</NodeName>
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DefaultValue>0</DefaultValue>
+            <Description></Description>
+            <DFFormat>
+              <int/>
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <Scope>
+              <Permanent />
+            </Scope>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+            <MSFT:SupportedValues low="0" high="1"></MSFT:SupportedValues>
+            <MSFT:ConflictResolution>HighestValueMostSecure</MSFT:ConflictResolution>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>FallbackDiagnostics</NodeName>
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DefaultValue>2</DefaultValue>
+            <Description></Description>
+            <DFFormat>
+              <int/>
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <Scope>
+              <Permanent />
+            </Scope>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+            <MSFT:SupportedValues low="0" high="2"></MSFT:SupportedValues>
+            <MSFT:ConflictResolution>LastWrite</MSFT:ConflictResolution>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>MicrophoneDisabled</NodeName>
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DefaultValue>0</DefaultValue>
+            <Description></Description>
+            <DFFormat>
+              <int/>
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <Scope>
+              <Permanent />
+            </Scope>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+            <MSFT:SupportedValues low="0" high="1"></MSFT:SupportedValues>
+            <MSFT:ConflictResolution>HighestValueMostSecure</MSFT:ConflictResolution>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>VolumeButtonDisabled</NodeName>
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DefaultValue>0</DefaultValue>
+            <Description></Description>
+            <DFFormat>
+              <int/>
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <Scope>
+              <Permanent />
+            </Scope>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+            <MSFT:SupportedValues low="0" high="1"></MSFT:SupportedValues>
+            <MSFT:ConflictResolution>HighestValueMostSecure</MSFT:ConflictResolution>
           </DFProperties>
         </Node>
       </Node>
@@ -77087,7 +77699,7 @@ Caution: If a Restricted Groups policy is applied, any current member not on the
             <MSFT:ADMXMapped>ControlPanel.admx</MSFT:ADMXMapped>
             <MSFT:ADMXMappedElement>SettingsPageVisibilityBox</MSFT:ADMXMappedElement>
             <MSFT:ADMXCategory>ControlPanel~AT~ControlPanel</MSFT:ADMXCategory>
-            <MSFT:ADMXPolicyName>SettingsPageVisibilityForBoth</MSFT:ADMXPolicyName>
+            <MSFT:ADMXPolicyName>SettingsPageVisibility</MSFT:ADMXPolicyName>
             <MSFT:ConflictResolution>LastWrite</MSFT:ConflictResolution>
           </DFProperties>
         </Node>
@@ -79532,37 +80144,6 @@ The following list shows the supported values:
           </DFProperties>
         </Node>
         <Node>
-          <NodeName>ConfigureKoreanIMEVersion</NodeName>
-          <DFProperties>
-            <AccessType>
-              <Get />
-            </AccessType>
-            <DefaultValue>0</DefaultValue>
-            <Description>This policy allows the IT admin to configure the Microsoft Korean IME version in the desktop.
-The following list shows the supported values:
-0 (default) – The new Microsoft Korean IME is on by default. Allow to control Microsoft Korean IME version to use.
-1 - The previous version of Microsoft Korean IME is always selected.  Not allowed to control Microsoft Korean IME version to use.
-2 - The new Microsoft Korean IME is always selected.  Not allowed to control Microsoft Korean IME version to use.</Description>
-            <DFFormat>
-              <int/>
-            </DFFormat>
-            <Occurrence>
-              <One />
-            </Occurrence>
-            <Scope>
-              <Permanent />
-            </Scope>
-            <DFType>
-              <MIME>text/plain</MIME>
-            </DFType>
-            <MSFT:SupportedValues low="0" high="2"></MSFT:SupportedValues>
-            <MSFT:ADMXMapped>EAIME.admx</MSFT:ADMXMapped>
-            <MSFT:ADMXCategory>EAIME~AT~WindowsComponents~L_IME</MSFT:ADMXCategory>
-            <MSFT:ADMXPolicyName>L_ConfigureKoreanImeVersion</MSFT:ADMXPolicyName>
-            <MSFT:ConflictResolution>LowestValueMostSecure</MSFT:ConflictResolution>
-          </DFProperties>
-        </Node>
-        <Node>
           <NodeName>ConfigureSimplifiedChineseIMEVersion</NodeName>
           <DFProperties>
             <AccessType>
@@ -80164,7 +80745,7 @@ Enabling this policy allows you to configure how recommended troubleshooting is 
             <DFType>
               <MIME>text/plain</MIME>
             </DFType>
-            <MSFT:SupportedValues low="0" high="7"></MSFT:SupportedValues>
+            <MSFT:SupportedValues low="0" high="6"></MSFT:SupportedValues>
             <MSFT:ADMXMapped>WindowsUpdate.admx</MSFT:ADMXMapped>
             <MSFT:ADMXMappedElement>AutoUpdateMode</MSFT:ADMXMappedElement>
             <MSFT:ADMXCategory>WindowsUpdate~AT~WindowsComponents~WindowsUpdateCat</MSFT:ADMXCategory>
@@ -80752,6 +81333,30 @@ If you disable or do not configure this policy setting, the wake setting as spec
             <MSFT:ADMXMapped>WindowsUpdate.admx</MSFT:ADMXMapped>
             <MSFT:ADMXCategory>WindowsUpdate~AT~WindowsComponents~WindowsUpdateCat</MSFT:ADMXCategory>
             <MSFT:ADMXPolicyName>DisableDualScan</MSFT:ADMXPolicyName>
+            <MSFT:ConflictResolution>LastWrite</MSFT:ConflictResolution>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>DisableWUfBSafeguards</NodeName>
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DefaultValue>0</DefaultValue>
+            <Description></Description>
+            <DFFormat>
+              <int/>
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <Scope>
+              <Permanent />
+            </Scope>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+            <MSFT:SupportedValues AllowedValues="0,1"></MSFT:SupportedValues>
             <MSFT:ConflictResolution>LastWrite</MSFT:ConflictResolution>
           </DFProperties>
         </Node>
@@ -81626,6 +82231,34 @@ If you disable or do not configure this policy setting, the wake setting as spec
             <MSFT:ADMXMapped>WindowsUpdate.admx</MSFT:ADMXMapped>
             <MSFT:ADMXCategory>WindowsUpdate~AT~WindowsComponents~WindowsUpdateCat</MSFT:ADMXCategory>
             <MSFT:ADMXPolicyName>SetEDURestart</MSFT:ADMXPolicyName>
+            <MSFT:ConflictResolution>LastWrite</MSFT:ConflictResolution>
+          </DFProperties>
+        </Node>
+        <Node>
+          <NodeName>SetProxyBehaviorForUpdateDetection</NodeName>
+          <DFProperties>
+            <AccessType>
+              <Get />
+            </AccessType>
+            <DefaultValue>0</DefaultValue>
+            <Description></Description>
+            <DFFormat>
+              <int/>
+            </DFFormat>
+            <Occurrence>
+              <One />
+            </Occurrence>
+            <Scope>
+              <Permanent />
+            </Scope>
+            <DFType>
+              <MIME>text/plain</MIME>
+            </DFType>
+            <MSFT:SupportedValues low="0" high="1"></MSFT:SupportedValues>
+            <MSFT:ADMXMapped>WindowsUpdate.admx</MSFT:ADMXMapped>
+            <MSFT:ADMXMappedElement>SetProxyBehaviorForUpdateDetection</MSFT:ADMXMappedElement>
+            <MSFT:ADMXCategory>WindowsUpdate~AT~WindowsComponents~WindowsUpdateCat</MSFT:ADMXCategory>
+            <MSFT:ADMXPolicyName>CorpWuURL</MSFT:ADMXPolicyName>
             <MSFT:ConflictResolution>LastWrite</MSFT:ConflictResolution>
           </DFProperties>
         </Node>
